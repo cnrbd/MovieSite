@@ -25,7 +25,7 @@ urlpatterns = [
     # all urls from the home.urls files is included in this file because of the line above.
     path('movies/', include('movies.urls')),
     path("__reload__/", include("django_browser_reload.urls")),
-    path('accounts/', include('accounts.urls'))
+    path('accounts/', include('accounts.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

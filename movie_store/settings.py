@@ -37,10 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tailwind',
     'home',
     'movies',
-    'theme',
     'django_browser_reload',
     'accounts'
 
@@ -62,7 +60,8 @@ ROOT_URLCONF = "movie_store.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / 'templates']
+         'DIRS': [os.path.join(BASE_DIR,
+                              'movie_store/templates')]
         ,
         "APP_DIRS": True,
         "OPTIONS": {
