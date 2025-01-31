@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'home',
     'movies',
     'theme',
-    'django_browser_reload'
+    'django_browser_reload',
+    'accounts'
 ]
 
 MIDDLEWARE = [
