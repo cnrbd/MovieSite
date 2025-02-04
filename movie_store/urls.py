@@ -21,7 +21,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include('home.urls')),
+    path("", include('home.urls')), #home page of the project
     # all urls from the home.urls files is included in this file because of the line above.
     path('movies/', include('movies.urls')),
     path("__reload__/", include("django_browser_reload.urls")),
