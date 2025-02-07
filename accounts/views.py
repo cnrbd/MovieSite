@@ -16,7 +16,7 @@ def login(request):
             return render(request, 'accounts/login.html', {'template_data': template_data})
         else:
             auth_login(request, user)
-            return redirect('home.index')
+            return redirect('home:index')
 
 def signup(request):
     template_data = {}
@@ -29,7 +29,7 @@ def signup(request):
         form = CustomUserCreationForm(request.POST, error_class=CustomErrorList)
         if form.is_valid():
             form.save()
-            return redirect('account.login')
+            return redirect('accounts:login')
         else:
             template_data['form'] = form
             return render(request, 'accounts/signup.html',{'template_data': template_data})
@@ -37,4 +37,4 @@ def signup(request):
 @login_required
 def logout(request):
     auth_logout(request)
-    return redirect('home.index')
+    return redirect('accounts:login')
