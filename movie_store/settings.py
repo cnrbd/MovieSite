@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'home',
     'movies',
     'django_browser_reload',
-    'accounts'
-
+    'accounts',
+    'cart'
 ]
 
 MIDDLEWARE = [
