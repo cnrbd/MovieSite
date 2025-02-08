@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404, redirect
 from movies.models import Movie
 from .utils import calculate_cart_total
 
+
 def index(request):
     cart_total = 0
     movies_in_cart = []

@@ -1,4 +1,20 @@
-% extends 'base.html' %}
+{% extends 'base.html' %}
+{#Note 1: Extending base.html causes home.about error - Arjun.#}
+{#Note 2: changing 'home.about' to 'home:about' in movie_stores/urls fixes the error??? Why?? - Arjun#}
+<!--
+Note 4: ChatGPT tells me this:
+
+"
+home.about Fails Because:
+Unlike cart.index, home.about must be home:about because:
+Your home/urls.py does define app_name = "home".
+Django expects namespaced URLs to use a colon (:) instead of a dot (.)
+"
+
+I don't get why this works, but I'm just gonna leave these notes here in case we run into a future problem.
+- Arjun
+-->
+
 {% block content %}
 {% load static %}
 {% load cart_filters %}
@@ -27,8 +43,7 @@
             <td>{{ movie.id }}</td>
             <td>{{ movie.name }}</td>
             <td>${{ movie.price }}</td>
-            <td>{{
-              request.session.cart|get_quantity:movie.id }}
+            <td>{{ request.session.cart|get_quantity:movie.id }}
             </td>
           </tr>
           {% endfor %}
@@ -37,8 +52,14 @@
     </div>
     <div class="row">
       <div class="text-end">
-        <a class="btn btn-outline-secondary mb-2"><b>Total
-          to pay:</b> ${{ template_data.cart_total }}</a>
+        <a class="btn btn-outline-secondary mb-2"><b>Total to pay:</b> ${{ template_data.cart_total }}</a>
+        {% if template_data.movies_in_cart|length > 0 %}
+        <a href="{% url 'cart.clear' %}">
+          <button class="btn btn-danger mb-2">
+            Clear Cart
+          </button>
+        </a>
+        {% endif %}
       </div>
     </div>
   </div>
