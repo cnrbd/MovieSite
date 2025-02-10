@@ -96,8 +96,20 @@
                 <p>Welcome back! Login below</p>
                 <form action="{% url 'accounts:login' %}" method="POST">
                     {% csrf_token %}
-                    <input type="email" name="email" class="form-control" placeholder="Email" required>
-                    <input type="password" name="password" class="form-control" placeholder="Password" required>
+                    <p>
+                        <label for="username">Username</label>
+                        <input id="username" type="text"
+                               name="username" required
+                               autocomplete="username"
+                               class="form-control">
+                    </p>
+                    <p>
+                        <label for="password">Password</label>
+                        <input id="password" type="password"
+                               name="password" required
+                               autocomplete="current-password"
+                               class="form-control">
+                    </p>
                     <button type="submit" class="btn btn-login">LOG IN</button>
                 </form>
                 <p class="create-account">Don't have an account? <a href="{% url 'accounts:signup' %}">Create an account</a></p>
