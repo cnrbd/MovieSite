@@ -15,6 +15,37 @@
   </head>
 
   <body>
+<<<<<<< HEAD
+    <!-- Header -->
+    <nav class="p-3 navbar navbar-dark bg-dark navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'home:index' %}">
+          <img src="{% static 'img/logo.png' %}" alt="logo" height="40" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ms-auto navbar-ml">
+            <a class="nav-link" href="{% url 'home:about' %}">About</a>
+            {# changed line 26 from home.about to home:about. See cart/index.html for more details - Arjun#}
+            <a class="nav-link" href="{% url 'movies.index' %}">Movies</a>
+            <a class="nav-link" href="{% url 'cart.index' %}">Cart</a>
+            <div class="vr bg-white mx-2 d-none d-lg-block"></div>
+            {% if user.is_authenticated %}
+            <a class="nav-link" href="{% url 'accounts:orders' %}">Orders</a>
+            <a class="nav-link" href="{% url 'accounts:logout' %}">Logout ({{user.username }})</a>
+            {% else %}
+            <a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
+            <a class="nav-link" href="{% url 'accounts:signup' %}">Sign Up</a>
+              {% endif %}
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Header -->
+=======
     <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #000000 !important;">
             <div class="container-fluid d-flex justify-content-between align-items-center">
@@ -43,6 +74,7 @@
 
             </div>
         </nav>
+>>>>>>> main
 
     <div>
       {% block content %}
