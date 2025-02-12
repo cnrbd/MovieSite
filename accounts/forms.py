@@ -20,9 +20,9 @@ class CustomUserCreationForm(UserCreationForm):
 
 class CustomPasswordChangeForm(forms.Form):
     username = forms.CharField(max_length=150, required=True)
-    old_password = forms.CharField(widget=forms.PasswordInput, required=True)
-    new_password1 = forms.CharField(widget=forms.PasswordInput, required=True)
-    new_password2 = forms.CharField(widget=forms.PasswordInput, required=True)
+    old_password = forms.CharField(widget=forms.PasswordInput, required=True, label='Old Password')
+    new_password1 = forms.CharField(widget=forms.PasswordInput, required=True, label='New Password')
+    new_password2 = forms.CharField(widget=forms.PasswordInput, required=True, label = 'Confirm New Password')
 
     def __init__(self, *args, **kwargs):
         super(CustomPasswordChangeForm, self).__init__(*args, **kwargs)

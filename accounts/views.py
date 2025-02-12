@@ -59,7 +59,6 @@ def changePassword(request):
         form = CustomPasswordChangeForm(data=request.POST, error_class=CustomErrorList)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Password changed successfully.')
             return redirect('accounts:login')
         else:
             template_data['form'] = form
