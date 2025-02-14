@@ -11,8 +11,16 @@ def login(request):
     if request.method == 'GET':
         return render(request, 'accounts/login.html', {'template_data': template_data})
     elif request.method == 'POST':
+        print(request.POST)
         user = authenticate(request, username = request.POST['username'], password = request.POST['password'])
-        if user is None:
+        print(user)
+        # if  user:
+        #     template_data['error'] = 'The username or password is incorrect.'
+        #     return render(request, 'accounts/login.html', {'template_data': template_data})
+        # else:
+        #     auth_login(request, user)
+        #     return redirect('home:index')
+        if user is None:  # Fix the condition
             template_data['error'] = 'The username or password is incorrect.'
             return render(request, 'accounts/login.html', {'template_data': template_data})
         else:
